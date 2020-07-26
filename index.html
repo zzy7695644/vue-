@@ -7,20 +7,15 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <div id='app5'>
+  <div id='app6'>
     <p>{{message}}</p>
-    <button v-on:click="reverseMessage">反转消息</button>
+    <input v-model='message'>
   </div>
   <script>
     var app = new Vue({
-      el: '#app5',
+      el: '#app6',
       data: {
-        message: 'hello'
-      },
-      methods: {
-        reverseMessage: function(){
-          this.message = this.message.split('').reverse().join('')
-        }
+        message: ''
       }
     })
   </script>
