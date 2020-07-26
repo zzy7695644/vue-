@@ -7,17 +7,32 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <div id='app6'>
-    <p>{{message}}</p>
-    <input v-model='message'>
+  <div id="app7">
+    <ol>
+      <todo-item 
+        v-for='item in groceryList'
+        v-bind:todo='item'
+        :key='item.id'
+      ></todo-item>
+    </ol>
   </div>
+
   <script>
-    var app = new Vue({
-      el: '#app6',
-      data: {
-        message: ''
-      }
-    })
+   Vue.component('todo-item',{
+     props: ['todo'],
+     template: '<div>{{todo.text}}</div>'
+   })
+
+   var app = new Vue({
+     el: '#app7',
+     data: {
+      groceryList:[
+        {id: 3, text: "学习0"},
+        {id: 1, text: "学习1"},
+        {id: 2, text: "学习2"}
+      ]
+     }
+   })
   </script>
 </body>
 </html>
