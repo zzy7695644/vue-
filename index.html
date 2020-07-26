@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id='app4'>
+    <ol>
+      <li v-for='toto in totos'>
+        {{toto.text}}
+      </li>
+    </ol>
+  </div>
+  <script>
+    var app  = new Vue({
+      el: '#app4',
+      data: {
+        totos: [
+          {text: '学习'},
+          {text: '读书'},
+          {text: 'list'}
+        ]
+      }
+    })
+  </script>
+
+</body>
+</html>
