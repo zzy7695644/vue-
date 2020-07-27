@@ -8,24 +8,32 @@
 </head>
 <body>
   <div id="app8">
-   <p>Message: {{message}}</p>
-   <p>reversed message: "{{reversedMessage}}"</p>
+    {{fullName}}
+    <p>{{firstName}}</p>
+    <p>{{lastName}}</p>
   </div>
 
   <script>
     var vm = new Vue({
       el: '#app8',
       data: {
-        message: 'hello'
+        firstName: 'Foo',
+        lastName: 'Too'
       },
       computed: {
-        reversedMessage: function(){
-          return this.message.split('').reverse().join('')
+        fullName: {
+          get: function(){
+          return this.firstName + '' + this.lastName
+          },
+          set: function(newValue){
+            var names = newValue.split(' ')
+            this.firstName = names[0]
+            this.lastName = names[names.length-1]
+          }
         }
       }
     })
-    //vm.message = 'Goodbye'
-    console.log(vm.reversedMessage)
+    //vm.fullName = 'John Doe'
   </script>
 </body>
 </html>
