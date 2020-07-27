@@ -7,20 +7,21 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <div id="app7">
-    <div v-bind:id="dynamicId"></div>
-    <button v-bind:disabled="isButtonDisabled">Button</button>
+  <div id="app8">
+    <a v-bind:[attributeName]= "url">...</a>
+    <!-- <p></p>
+    <a v-on:[eventName]="doSomething"> ... </a> -->
   </div>
 
   <script>
-   var app = new Vue({
-     el: '#app7',
-     data: {
-      isButtonDisabled: false,
-      disabled: false
-     },
-     
-   })
+    var data = { attributeName : 'href',
+                url : 'ssss'}
+    var app = new Vue({
+      el: '#app8',
+      data: {
+        data : data
+      }
+    })
   </script>
 </body>
 </html>
