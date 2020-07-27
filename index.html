@@ -8,21 +8,19 @@
 </head>
 <body>
   <div id="app7">
-    <p>Using mustaches: {{ rawHtml }}</p>
-    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    <div v-bind:id="dynamicId"></div>
+    <button v-bind:disabled="isButtonDisabled">Button</button>
   </div>
 
   <script>
-   new Vue({
+   var app = new Vue({
      el: '#app7',
-     //双大括号将数据解释为文本，v-html将内容替换为porperty值，return?
-     data: function(){
-       return {
-        rawHtml: '<span style="color: red">This should be red.</span>'
-       }
-     }
+     data: {
+      isButtonDisabled: false,
+      disabled: false
+     },
+     
    })
-    
   </script>
 </body>
 </html>
