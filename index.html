@@ -8,20 +8,24 @@
 </head>
 <body>
   <div id="app8">
-    <a v-bind:[attributeName]= "url">...</a>
-    <!-- <p></p>
-    <a v-on:[eventName]="doSomething"> ... </a> -->
+   <p>Message: {{message}}</p>
+   <p>reversed message: "{{reversedMessage}}"</p>
   </div>
 
   <script>
-    var data = { attributeName : 'href',
-                url : 'ssss'}
-    var app = new Vue({
+    var vm = new Vue({
       el: '#app8',
       data: {
-        data : data
+        message: 'hello'
+      },
+      computed: {
+        reversedMessage: function(){
+          return this.message.split('').reverse().join('')
+        }
       }
     })
+    //vm.message = 'Goodbye'
+    console.log(vm.reversedMessage)
   </script>
 </body>
 </html>
