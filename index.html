@@ -8,23 +8,18 @@
 </head>
 <body>
   <div id="app7">
-   <p>{{foo}}</p>
-   <button v-on:click="foo = 'zxc'">
-     Change it
-   </button>
+   <span>{{message}}</span>
+   <span v-once>这个将不会改变：{{message}}</span>
   </div>
 
   <script>
-   var obj = {
-     foo: 'bar'
-   }
-
-    // Object.freeze(obj) 去掉这个浏览器不报错
+   new Vue({
+     el: '#app7',
+     data: {
+       message: 'ssss'
+     }
+   })
     
-    new Vue({
-      el: '#app7',
-      data: obj
-    })
   </script>
 </body>
 </html>
