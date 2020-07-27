@@ -8,31 +8,23 @@
 </head>
 <body>
   <div id="app7">
-    <ol>
-      <todo-item 
-        v-for='item in groceryList'
-        v-bind:todo='item'
-        :key='item.id'
-      ></todo-item>
-    </ol>
+   <p>{{foo}}</p>
+   <button v-on:click="foo = 'zxc'">
+     Change it
+   </button>
   </div>
 
   <script>
-   Vue.component('todo-item',{
-     props: ['todo'],
-     template: '<div>{{todo.text}}</div>'
-   })
+   var obj = {
+     foo: 'bar'
+   }
 
-   var app = new Vue({
-     el: '#app7',
-     data: {
-      groceryList:[
-        {id: 3, text: "学习0"},
-        {id: 1, text: "学习1"},
-        {id: 2, text: "学习2"}
-      ]
-     }
-   })
+    // Object.freeze(obj) 去掉这个浏览器不报错
+    
+    new Vue({
+      el: '#app7',
+      data: obj
+    })
   </script>
 </body>
 </html>
