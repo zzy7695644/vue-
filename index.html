@@ -8,15 +8,18 @@
 </head>
 <body>
   <div id="app7">
-   <span>{{message}}</span>
-   <span v-once>这个将不会改变：{{message}}</span>
+    <p>Using mustaches: {{ rawHtml }}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
   </div>
 
   <script>
    new Vue({
      el: '#app7',
-     data: {
-       message: 'ssss'
+     //双大括号将数据解释为文本，v-html将内容替换为porperty值，return?
+     data: function(){
+       return {
+        rawHtml: '<span style="color: red">This should be red.</span>'
+       }
      }
    })
     
