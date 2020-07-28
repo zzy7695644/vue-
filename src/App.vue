@@ -16,7 +16,6 @@ export default {
   name: 'App',
   components: {
     // HelloWorld,
-    // App2,
     study
   }
 }
