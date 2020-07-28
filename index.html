@@ -4,30 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+  
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <div id="watch-example">
-    <div v-bind:class="classObject"></div>
-  </div>
+  <my-component class="baz boo"></my-component>
   <script>
-    var watchExampleVM = new Vue({
-      el: '#watch-example',
-      data: {
-      isActive: true,
-      error: null
-      },
-      computed: {
-        classObject: function () {
-          return {
-            active: this.isActive && !this.error,
-            'text-danger': this.error && this.error.type === 'fatal'
-         }
-       }
-     }
+    Vue.component('my-component', {
+      template: '<p class="foo bar">Hi</p>'
     })
-    </script>
+  </script>
 </body>
 </html>
