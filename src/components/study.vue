@@ -1,25 +1,30 @@
 <template>
-  <!-- <div v-bind:style="{ color: activeColor, fontSize: fontSize+'px'}"></div> -->
-  <!-- <div v-bind:style="styleObject">1111111111111111111111111111111111</div> -->
-  <!-- 直接绑定样式对象，return里应该是样式名加参数 -->
-  <!-- <div v-bind:style="[baseStyles, overridingStyles]">111111111111111111111111</div> -->
-  <!-- 绑定多个样式对象 -->
-  <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">22222222222222222</div>
+  <div>
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username" key="username-input">
+      <button @click="toggleLoginType">Toggle login type</button>
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address" key="email-input">
+      <button @click="toggleLoginType">Toggle login type</button>
+    </template>
+  </div>
+
 </template>
 
 <script>
 export default {
   data() {
     return {
-      baseStyles: {
-        color: 'red'
-      },
-      overridingStyles:{
-        fontSize: 30
-      }
-      
+      loginType: 'username'
     }
   },
-  
+  methods: {
+    toggleLoginType: function () {
+      return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+    }
+  }
 }
 </script>
