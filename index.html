@@ -8,10 +8,27 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <my-component class="baz boo"></my-component>
+  <div id="no-key-example"></div>
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address">
+    </template>
+
   <script>
-    Vue.component('my-component', {
-      template: '<p class="foo bar">Hi</p>'
+    new Vue({
+      el: '#no-key-example',
+      data: {
+        loginType: 'username'
+      },
+      methods: {
+        toggleLoginType: function () {
+          return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+        }
+      }
     })
   </script>
 </body>
